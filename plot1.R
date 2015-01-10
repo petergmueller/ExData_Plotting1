@@ -10,6 +10,9 @@ plot1 <- function() {
 
   ## change column format to numeric
   power[,3] <- as.numeric(as.character(power[,3]))
+  
+  ## png device
+  png(file = "plot1.png",  width = 480, height = 480, units = "px")
 
   ## setting the panel size and the background color
   par(mfrow = c(1,1), bg="white")
@@ -17,8 +20,7 @@ plot1 <- function() {
   ## draw the histogram
   hist(power$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
 
-  ## copy to pdf device and close the device
-  dev.copy(png, file = "plot1.png",  width = 480, height = 480, units = "px")
+  ## device off
   dev.off()
 }
 

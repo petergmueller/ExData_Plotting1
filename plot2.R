@@ -14,6 +14,9 @@ plot2 <- function() {
   ## combine Date Time in a new column 
   power$DateTime <- strptime(paste(power$Date, power$Time, sep=' '), format="%d/%m/%Y %R:%S")
 
+  ## png device
+  png(file = "plot2.png",  width = 480, height = 480, units = "px")
+
   ## setting the panel size and the background color
   par(mfrow = c(1,1), bg="white")
   
@@ -23,8 +26,7 @@ plot2 <- function() {
   ## plot line global active power vs date/time
   with(power, plot(DateTime, Global_active_power, ylab="Global Active Power (kilowatts)", xlab="", type="l"))
   
-  ## copy to pdf device and close it
-  dev.copy(png, file = "plot2.png",  width = 480, height = 480, units = "px")
+  ## device off
   dev.off()
 }
 

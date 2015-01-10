@@ -24,7 +24,7 @@ plot2 <- function() {
   Sys.setlocale("LC_TIME", "English")
 
   ## plot line global active power vs date/time
-  with(power, plot(DateTime, Global_active_power, ylab="Global Active Power (kilowatts)", xlab="", type="l"))
+  plot(power$DateTime, power$Global_active_power, ylab="Global Active Power (kilowatts)", xlab="", type="l")
   
   ## device off
   dev.off()
